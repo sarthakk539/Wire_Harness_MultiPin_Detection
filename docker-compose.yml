@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  wire-harness-detector:
+    build: .
+    container_name: wire_harness_detector
+    volumes:
+      - ./test_images:/app/test_images
+      - ./logs:/app/logs
+      - ./output:/app/output
+    working_dir: /app
+    command: detect --image test_images/sample.jpg --expected 24
